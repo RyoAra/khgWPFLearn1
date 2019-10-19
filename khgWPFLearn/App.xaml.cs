@@ -1,12 +1,13 @@
-﻿using Prism.Ioc;
+﻿using khgWPFLearn.Views;
+using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;
 using System.Windows;
 
-namespace khgWPFLearn1
+namespace khgWPFLearn
 {
     /// <summary>
-    /// App.xaml の相互作用ロジック
+    /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : PrismApplication
     {

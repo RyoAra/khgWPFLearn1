@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="khgWPFLearn_Module1.Views.KhgLearnUserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Height="600"
+             Width="600"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Background="White">
+    <Grid>
+        <TextBlock Text="{Binding TestText.Value}"/>
+        <TextBlock Text="aaaa"/>
+    </Grid>
+</UserControl>
