@@ -2,17 +2,21 @@
 using Prism.Modularity;
 using Prism.Unity;
 using System.Windows;
+using khgWPFLearn1.NavigateControl;
+using HamburgerMenu;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace khgWPFLearn1
 {
     /// <summary>
     /// App.xaml の相互作用ロジック
     /// </summary>
-    public partial class App : PrismApplication
+    public partial class App 
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<MainWindow>();
+            return Container.Resolve<Views.MainWindow>();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -20,10 +24,13 @@ namespace khgWPFLearn1
 
         }
 
-        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        
+        protected override IModuleCatalog CreateModuleCatalog()
         {
-            //moduleCatalog.AddModule<khgWPFLearn_Module1.khgWPFLearn_Module1Module>();
-            moduleCatalog.AddModule(typeof(khgWPFLearn_Module1.khgWPFLearn_Module1Module));
+            //Modulesフォルダーにあるモジュールを読み込む。
+            //読み込まれる先はモジュール側に書かれたRegionNameの場所
+            DirectoryModuleCatalog a = new DirectoryModuleCatalog() { ModulePath = @".\Modules" };
+            return a;
         }
     }
 }
