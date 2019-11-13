@@ -21,7 +21,7 @@ namespace khgWPFLearn1
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            
         }
 
         
@@ -29,7 +29,9 @@ namespace khgWPFLearn1
         {
             //Modulesフォルダーにあるモジュールを読み込む。
             //読み込まれる先はモジュール側に書かれたRegionNameの場所
-            DirectoryModuleCatalog a = new DirectoryModuleCatalog() { ModulePath = @".\Modules" };
+            
+            DirectoryModuleCatalog a = new DirectoryModuleCatalog() { ModulePath = System.IO.Path.Combine(System.Environment.CurrentDirectory, @"Modules\") };
+            a.Load();
             return a;
         }
     }

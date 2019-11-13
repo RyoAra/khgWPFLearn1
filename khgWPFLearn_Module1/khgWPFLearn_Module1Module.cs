@@ -4,6 +4,7 @@ using Prism.Regions;
 using HamburgerMenu;
 
 
+
 namespace khgWPFLearn_Module1
 {
     [HamburgerMenuItem("KHGModule1", "KhgLearnUserControl1", ModuleType = typeof(khgWPFLearn_Module1Module))]

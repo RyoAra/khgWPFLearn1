@@ -15,6 +15,11 @@ namespace HamburgerMenu
     [AttributeUsage(AttributeTargets.All)]
     public sealed class HamburgerMenuItemAttribute : Attribute
     {
+        public HamburgerMenuItemAttribute()
+        {
+
+        }
+
         public HamburgerMenuItemAttribute(string Text, string ToControlView)
         {
             this.Text = Text;
