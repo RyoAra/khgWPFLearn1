@@ -55,6 +55,14 @@ namespace HamburgerMenu
             set { _moduleType = value; }
         }
 
+        private string _glyph;
+
+        public string Glyph
+        {
+            get { return _glyph; }
+            set { _glyph = value; }
+        }
+
         //public static ImageSource GetIcon(DependencyObject obj)
         //{
         //    return (ImageSource)obj.GetValue(IconProperty);

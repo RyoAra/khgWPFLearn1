@@ -7,7 +7,7 @@ using HamburgerMenu;
 
 namespace khgWPFLearn_Module1
 {
-    [HamburgerMenuItem("KHGModule1", "KhgLearnUserControl1", ModuleType = typeof(khgWPFLearn_Module1Module))]
+    [HamburgerMenuItem("KHGModule1", "KhgLearnUserControl1", ModuleType = typeof(khgWPFLearn_Module1Module) ,Glyph = "uE8A5") ]
     //[assembly:HamburgerMenuItem("KHGModule1", "KhgLearnUserControl1",ModuleType =typeof(khgWPFLearn_Module1Module))]
     public class khgWPFLearn_Module1Module : IModule
     {

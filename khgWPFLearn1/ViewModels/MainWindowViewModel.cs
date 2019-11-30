@@ -21,6 +21,10 @@ namespace khgWPFLearn1.ViewModels
 
         public ReactiveCollection<HamburgerMenuItemAttribute> menuItemAttributes { get; set; } = new ReactiveCollection<HamburgerMenuItemAttribute>();
 
+        public ReactiveCollection<MahApps.Metro.Controls.HamburgerMenuItem> hamburgerMenus { get; set; } = new ReactiveCollection<MahApps.Metro.Controls.HamburgerMenuItem>();
+
+        public ReactiveCollection<GrobalNavigate> grobalNavigates { get; set; } = new ReactiveCollection<GrobalNavigate>();
+
         public ReactiveProperty<HamburgerMenuItemAttribute> selectedMenu { get; set; } = new ReactiveProperty<HamburgerMenuItemAttribute>();
 
         public MainWindowViewModel(IRegionManager rm, IModuleCatalog mc)
@@ -40,6 +44,7 @@ namespace khgWPFLearn1.ViewModels
             foreach(HamburgerMenuItemAttribute s in NavigateMenu.LoadModule())
             {
                 menuItemAttributes.Add(s);
+                hamburgerMenus.Add(new MahApps.Metro.Controls.HamburgerMenuItem() {Label=s.Text,Command= MenuChangeCommand, });
             }
             this.regionManager.RequestNavigate("ContentRegion", menuItemAttributes[0].ToControlView);
             

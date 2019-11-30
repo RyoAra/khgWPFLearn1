@@ -10,7 +10,30 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Title="MainWindow"
+    ShowTitleBar="True"
     Background="White">
+    <mahapps:MetroWindow.Resources>
+        <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type mahapps:HamburgerMenuGlyphItem}">
+            <Grid Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    FontSize="16"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Segoe MDL2 Assets"
+                    Text="{Binding Glyph}" />
+                <TextBlock
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Text="{Binding Text}" />
+            </Grid>
+        </DataTemplate>
+    </mahapps:MetroWindow.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -20,6 +43,7 @@
         <mahapps:HamburgerMenu
             ItemsSource="{Binding menuItemAttributes}"
             SelectedItem="{Binding selectedMenu}"
+            ItemTemplate="{StaticResource MenuItemTemplate}"
             ItemCommand="{Binding MenuChangeCommand}"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
