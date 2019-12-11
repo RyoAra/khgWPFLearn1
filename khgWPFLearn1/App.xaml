@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:khgWPFLearn1"
              xmlns:prism="http://prismlibrary.com/">
     <Application.Resources>
-        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn1;component/Properties/ResourceDictionary.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/khgWPFLearn1;component/Properties/ResourceDictionary.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

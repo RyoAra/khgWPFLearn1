@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "khgWPFLearn", "khgWPFLearn\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamburgerMenu", "HamburgerMenu\HamburgerMenu.csproj", "{CF1B7D25-4744-4B04-B725-7F2D8223806B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "khgWPFLearn_Module2", "khgWPFLearn_Module2\khgWPFLearn_Module2.csproj", "{783BB2ED-3979-4D37-8719-4E1E326C7FA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CF1B7D25-4744-4B04-B725-7F2D8223806B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF1B7D25-4744-4B04-B725-7F2D8223806B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF1B7D25-4744-4B04-B725-7F2D8223806B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{783BB2ED-3979-4D37-8719-4E1E326C7FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{783BB2ED-3979-4D37-8719-4E1E326C7FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{783BB2ED-3979-4D37-8719-4E1E326C7FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{783BB2ED-3979-4D37-8719-4E1E326C7FA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -49,6 +49,8 @@ namespace khgWPFLearn1.ViewModels
             this.regionManager.RequestNavigate("ContentRegion", menuItemAttributes[0].ToControlView);
             
             MenuChangeCommand.Subscribe(() => SelectedMenuChanged()).AddTo(_disposables);
+
+            selectedMenu.Value = menuItemAttributes[0];
         }
 
         private void SelectedMenuChanged()
