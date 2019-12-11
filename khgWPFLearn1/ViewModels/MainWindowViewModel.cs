@@ -5,6 +5,7 @@ using Prism.Modularity;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using System.Reactive.Disposables;
+using System.Collections.ObjectModel;
 using HamburgerMenu;
 using khgWPFLearn1.NavigateControl;
 
@@ -14,12 +15,19 @@ namespace khgWPFLearn1.ViewModels
     {
         private IRegionManager regionManager = null;
         private IModuleCatalog moduleCatalog = null;
+        private HamburgerMenuItemAttribute _selectedMenuItem;
 
         private CompositeDisposable _disposables = new CompositeDisposable();
+        public HamburgerMenuItemAttribute SelectedMenuItem
+        {
+            get { return _selectedMenuItem; }
+            set { SetProperty(ref _selectedMenuItem, value); }
+        }
 
         public ReactiveCommand MenuChangeCommand { get; private set; } = new ReactiveCommand();
 
-        public ReactiveCollection<HamburgerMenuItemAttribute> menuItemAttributes { get; set; } = new ReactiveCollection<HamburgerMenuItemAttribute>();
+        //public ReactiveCollection<HamburgerMenuItemAttribute> menuItemAttributes { get; set; } = new ReactiveCollection<HamburgerMenuItemAttribute>();
+        public ObservableCollection<HamburgerMenuItemAttribute> menuItemAttributes { get; set; } = new ObservableCollection<HamburgerMenuItemAttribute>();
 
         public ReactiveCollection<MahApps.Metro.Controls.HamburgerMenuItem> hamburgerMenus { get; set; } = new ReactiveCollection<MahApps.Metro.Controls.HamburgerMenuItem>();
 
@@ -50,12 +58,13 @@ namespace khgWPFLearn1.ViewModels
             
             MenuChangeCommand.Subscribe(() => SelectedMenuChanged()).AddTo(_disposables);
 
-            selectedMenu.Value = menuItemAttributes[0];
+            SelectedMenuItem = menuItemAttributes[0];
         }
 
         private void SelectedMenuChanged()
         {
-            this.regionManager.RequestNavigate("ContentRegion", selectedMenu.Value.ToControlView);
+            //this.regionManager.RequestNavigate("ContentRegion", selectedMenu.Value.ToControlView);
+            this.regionManager.RequestNavigate("ContentRegion", SelectedMenuItem.ToControlView);
         }
     }
 }

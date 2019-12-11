@@ -42,7 +42,7 @@
         <StackPanel Grid.Column="0" Background="Red">
         <mahapps:HamburgerMenu
             ItemsSource="{Binding menuItemAttributes}"
-            SelectedItem="{Binding selectedMenu}"
+            SelectedItem="{Binding SelectedMenuItem}"
             ItemTemplate="{StaticResource MenuItemTemplate}"
             ItemCommand="{Binding MenuChangeCommand}"/>
         </StackPanel>
