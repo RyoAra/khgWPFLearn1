@@ -40,16 +40,18 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Background="Red">
-        <mahapps:HamburgerMenu
+            <mahapps:HamburgerMenu
             IsPaneOpen="True"
             DisplayMode="CompactInline"
             ItemsSource="{Binding menuItemAttributes}"
             SelectedItem="{Binding SelectedMenuItem}"
             ItemTemplate="{StaticResource MenuItemTemplate}"
-            ItemCommand="{Binding MenuChangeCommand}"/>
+            ItemCommand="{Binding MenuChangeCommand}">
+                <mahapps:HamburgerMenu.Content >
+                    <StackPanel></StackPanel>
+                </mahapps:HamburgerMenu.Content>
+            </mahapps:HamburgerMenu>
         </StackPanel>
-        <StackPanel Grid.Column="1">
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
-        </StackPanel>
+        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ContentRegion" />
     </Grid>
 </mahapps:MetroWindow>
