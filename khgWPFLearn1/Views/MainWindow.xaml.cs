@@ -1,5 +1,5 @@
 ﻿using MahApps.Metro.Controls;
-
+using Prism.Regions;
 
 namespace khgWPFLearn1.Views
 {
@@ -8,9 +8,11 @@ namespace khgWPFLearn1.Views
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        public MainWindow()
+        public MainWindow(IRegionManager regionManager)
         {
             InitializeComponent();
+            //RegionManager.SetRegionName(ContentRegion, "MainRegion");
+            //RegionManager.SetRegionManager(ContentRegion, regionManager);
         }
     }
 }

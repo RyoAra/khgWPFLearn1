@@ -1,13 +1,12 @@
-﻿using Prism.Mvvm;
-using Prism.Regions;
-using Prism.Commands;
+﻿using HamburgerMenu;
+using khgWPFLearn1.NavigateControl;
 using Prism.Modularity;
+using Prism.Mvvm;
+using Prism.Regions;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
-using System.Reactive.Disposables;
 using System.Collections.ObjectModel;
-using HamburgerMenu;
-using khgWPFLearn1.NavigateControl;
+using System.Reactive.Disposables;
 
 namespace khgWPFLearn1.ViewModels
 {
@@ -15,10 +14,10 @@ namespace khgWPFLearn1.ViewModels
     {
         private IRegionManager regionManager = null;
         private IModuleCatalog moduleCatalog = null;
-        private HamburgerMenuItemAttribute _selectedMenuItem;
+        private GrobalNavigate _selectedMenuItem;
 
         private CompositeDisposable _disposables = new CompositeDisposable();
-        public HamburgerMenuItemAttribute SelectedMenuItem
+        public GrobalNavigate SelectedMenuItem
         {
             get { return _selectedMenuItem; }
             set { SetProperty(ref _selectedMenuItem, value); }
@@ -26,33 +25,20 @@ namespace khgWPFLearn1.ViewModels
 
         public ReactiveCommand MenuChangeCommand { get; private set; } = new ReactiveCommand();
 
-        //public ReactiveCollection<HamburgerMenuItemAttribute> menuItemAttributes { get; set; } = new ReactiveCollection<HamburgerMenuItemAttribute>();
-        public ObservableCollection<HamburgerMenuItemAttribute> menuItemAttributes { get; set; } = new ObservableCollection<HamburgerMenuItemAttribute>();
+        public ObservableCollection<GrobalNavigate> menuItemAttributes { get; set; } = new ObservableCollection<GrobalNavigate>();
 
-        public ReactiveCollection<MahApps.Metro.Controls.HamburgerMenuItem> hamburgerMenus { get; set; } = new ReactiveCollection<MahApps.Metro.Controls.HamburgerMenuItem>();
-
-        public ReactiveCollection<GrobalNavigate> grobalNavigates { get; set; } = new ReactiveCollection<GrobalNavigate>();
-
-        public ReactiveProperty<HamburgerMenuItemAttribute> selectedMenu { get; set; } = new ReactiveProperty<HamburgerMenuItemAttribute>();
+        //public ReactiveProperty<HamburgerMenuItemAttribute> selectedMenu { get; set; } = new ReactiveProperty<HamburgerMenuItemAttribute>();
+        public ReactiveProperty<GrobalNavigate> selectedMenu { get; set; } = new ReactiveProperty<GrobalNavigate>();
 
         public MainWindowViewModel(IRegionManager rm, IModuleCatalog mc)
         {
             this.regionManager = rm;
             this.moduleCatalog = mc;
-
-            
-            foreach(var v in mc.Modules)
-            {
-                HamburgerMenuItemAttribute s= new HamburgerMenuItemAttribute();
-                s.Text = v.ModuleName;
-                var dep = v.DependsOn;
-                
-            }
-            
+ 
             foreach(HamburgerMenuItemAttribute s in NavigateMenu.LoadModule())
             {
-                menuItemAttributes.Add(s);
-                hamburgerMenus.Add(new MahApps.Metro.Controls.HamburgerMenuItem() {Label=s.Text,Command= MenuChangeCommand, });
+                menuItemAttributes.Add(new GrobalNavigate() { Text=s.Text,Glyph=s.Glyph,ToControlView=s.ToControlView});
+                //hamburgerMenus.Add(new MahApps.Metro.Controls.HamburgerMenuItem() {Label=s.Text,Command= MenuChangeCommand, });
             }
             this.regionManager.RequestNavigate("ContentRegion", menuItemAttributes[0].ToControlView);
             
@@ -63,7 +49,6 @@ namespace khgWPFLearn1.ViewModels
 
         private void SelectedMenuChanged()
         {
-            //this.regionManager.RequestNavigate("ContentRegion", selectedMenu.Value.ToControlView);
             this.regionManager.RequestNavigate("ContentRegion", SelectedMenuItem.ToControlView);
         }
     }

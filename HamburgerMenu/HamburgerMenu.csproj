@@ -47,8 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HamburgerMenuItemAttribute.cs" />
-    <Compile Include="HamburgerMenuItem.cs" />
-    <Compile Include="HamburgerMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
