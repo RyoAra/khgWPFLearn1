@@ -11,8 +11,6 @@ namespace khgWPFLearn1.Views
         public MainWindow(IRegionManager regionManager)
         {
             InitializeComponent();
-            //RegionManager.SetRegionName(ContentRegion, "MainRegion");
-            //RegionManager.SetRegionManager(ContentRegion, regionManager);
         }
     }
 }
