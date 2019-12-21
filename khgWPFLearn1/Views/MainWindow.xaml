@@ -33,22 +33,40 @@
                     Text="{Binding Text}" />
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="OptionItemTemplate" DataType="{x:Type mahapps:HamburgerMenuGlyphItem}">
+            <Grid Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    FontSize="16"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Segoe MDL2 Assets"
+                    Text="{Binding Glyph}" />
+            </Grid>
+        </DataTemplate>
     </mahapps:MetroWindow.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Background="Red">
+        <StackPanel Grid.Column="0">
             <mahapps:HamburgerMenu
             IsPaneOpen="True"
+                PaneBackground="Red"
             DisplayMode="CompactInline"
             ItemsSource="{Binding menuItemAttributes}"
             SelectedItem="{Binding SelectedMenuItem}"
             ItemTemplate="{StaticResource MenuItemTemplate}"
+            OptionsItemTemplate="{StaticResource OptionItemTemplate}"
             ItemCommand="{Binding MenuChangeCommand}">
                 <mahapps:HamburgerMenu.Content >
-                    <StackPanel></StackPanel>
+                    <StackPanel>
+                    <!--<ContentControl Grid.Column="1"  prism:RegionManager.RegionName="ContentRegion" />-->
+                    </StackPanel>
                 </mahapps:HamburgerMenu.Content>
             </mahapps:HamburgerMenu>
         </StackPanel>

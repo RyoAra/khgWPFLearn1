@@ -1,11 +1,7 @@
-﻿using Prism.Commands;
+﻿using khgWPFLearn_Module1.Models;
 using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
-using khgWPFLearn_Module1.Models;
 using System.Reactive.Disposables;
 
 namespace khgWPFLearn_Module1.ViewModels
