@@ -9,7 +9,9 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              Background="White">
     <Grid>
-        <TextBlock Text="{Binding TestText.Value}"/>
-        <TextBlock Text="aaaa"/>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="{Binding TestText.Value}"/>
+            <TextBlock Text="aaaa"/>
+        </StackPanel>
     </Grid>
 </UserControl>
