@@ -48,28 +48,17 @@
             </Grid>
         </DataTemplate>
     </mahapps:MetroWindow.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <mahapps:HamburgerMenu
+    <mahapps:HamburgerMenu
             IsPaneOpen="True"
-                PaneBackground="Red"
+            PaneBackground="Red"
             DisplayMode="CompactInline"
             ItemsSource="{Binding menuItemAttributes}"
             SelectedItem="{Binding SelectedMenuItem}"
             ItemTemplate="{StaticResource MenuItemTemplate}"
             OptionsItemTemplate="{StaticResource OptionItemTemplate}"
             ItemCommand="{Binding MenuChangeCommand}">
-                <mahapps:HamburgerMenu.Content >
-                    <StackPanel>
-                    <!--<ContentControl Grid.Column="1"  prism:RegionManager.RegionName="ContentRegion" />-->
-                    </StackPanel>
-                </mahapps:HamburgerMenu.Content>
-            </mahapps:HamburgerMenu>
-        </StackPanel>
-        <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ContentRegion" />
-    </Grid>
+        <mahapps:HamburgerMenu.Content >
+            <ContentControl x:Name="ContentRegion" />
+        </mahapps:HamburgerMenu.Content>
+    </mahapps:HamburgerMenu>
 </mahapps:MetroWindow>
