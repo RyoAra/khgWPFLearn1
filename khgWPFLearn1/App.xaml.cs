@@ -21,7 +21,7 @@ namespace khgWPFLearn1
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            //containerRegistry.
         }
 
         
@@ -34,5 +34,7 @@ namespace khgWPFLearn1
             a.Load();
             return a;
         }
+
+        
     }
 }

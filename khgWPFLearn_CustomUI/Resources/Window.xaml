@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Style x:Key="{x:Type Window}" TargetType="Window">
+    <Style x:Key="{x:Type Window}" TargetType="mahapps:MetroWindow">
         <Setter Property="Background" Value="Gray"/>
         <Setter Property="MinWidth" Value="300"/>
         <Setter Property="MinHeight" Value="500"/>

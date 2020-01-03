@@ -16,6 +16,7 @@ namespace khgWPFLearn_Module1
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            // Viewの登録
             containerRegistry.RegisterForNavigation<Views.KhgLearnUserControl1>("KhgLearnUserControl1");
             //containerRegistry.RegisterForNavigation("KhgLearnUserControl1");
         }
