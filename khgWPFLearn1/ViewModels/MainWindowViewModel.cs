@@ -15,6 +15,7 @@ namespace khgWPFLearn1.ViewModels
         private IRegionManager regionManager = null;
         private IModuleCatalog moduleCatalog = null;
         private GrobalNavigate _selectedMenuItem;
+        private GrobalNavigate _oelectedOptionsMenuItem;
 
         private CompositeDisposable _disposables = new CompositeDisposable();
         public GrobalNavigate SelectedMenuItem
@@ -23,9 +24,17 @@ namespace khgWPFLearn1.ViewModels
             set { SetProperty(ref _selectedMenuItem, value); }
         }
 
+        public GrobalNavigate SelectedOptionsMenuItem
+        {
+            get { return _oelectedOptionsMenuItem; }
+            set { SetProperty(ref _oelectedOptionsMenuItem, value); }
+        }
+
         public ReactiveCommand MenuChangeCommand { get; private set; } = new ReactiveCommand();
 
         public ObservableCollection<GrobalNavigate> menuItemAttributes { get; set; } = new ObservableCollection<GrobalNavigate>();
+
+        public ObservableCollection<GrobalNavigate> OptionMenuItems { get; set; } = new ObservableCollection<GrobalNavigate>();
 
         public MainWindowViewModel(IRegionManager rm, IModuleCatalog mc)
         {
@@ -35,6 +44,7 @@ namespace khgWPFLearn1.ViewModels
             foreach (HamburgerMenuItemAttribute s in NavigateMenu.LoadModule())
             {
                 menuItemAttributes.Add(new GrobalNavigate() { Text = s.Text, Glyph = s.Glyph, ToControlView = s.ToControlView });
+                OptionMenuItems.Add(new GrobalNavigate() { Text = s.Text, Glyph = s.Glyph, ToControlView = s.ToControlView });
             }
             this.regionManager.RequestNavigate("ContentRegion", menuItemAttributes[0].ToControlView);
 

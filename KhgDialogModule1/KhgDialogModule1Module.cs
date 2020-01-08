@@ -1,7 +1,6 @@
 ﻿using KhgDialogModule1.Views;
 using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Regions;
 
 namespace KhgDialogModule1
 {
