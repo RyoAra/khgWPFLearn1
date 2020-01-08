@@ -13,5 +13,6 @@
             <TextBlock Text="{Binding TestText.Value}"/>
             <TextBlock Text="aaaa"/>
         </StackPanel>
+        <Button Content="ダイアログウィンドウ手st" Command="{Binding DialogTest}"/>
     </Grid>
 </UserControl>

@@ -1,11 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Unity;
 using System.Windows;
-using khgWPFLearn1.NavigateControl;
-using HamburgerMenu;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace khgWPFLearn1
 {
@@ -21,7 +16,7 @@ namespace khgWPFLearn1
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            //containerRegistry.
+            containerRegistry.RegisterDialog<khgWPFLearn_CustomUI.Dialogs.CustomDialog>();
         }
 
         

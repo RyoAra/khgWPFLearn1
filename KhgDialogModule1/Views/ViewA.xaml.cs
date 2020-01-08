@@ -10,17 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
-namespace khgWPFLearn_CustomUI.Dialogs
+namespace KhgDialogModule1.Views
 {
     /// <summary>
-    /// CustomDialog.xaml の相互作用ロジック
+    /// Interaction logic for ViewA.xaml
     /// </summary>
-    public partial class CustomDialog : Window
+    public partial class ViewA : UserControl
     {
-        public CustomDialog()
+        public ViewA()
         {
             InitializeComponent();
         }

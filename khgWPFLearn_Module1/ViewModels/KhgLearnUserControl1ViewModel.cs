@@ -1,7 +1,10 @@
-﻿using khgWPFLearn_Module1.Models;
+﻿using khgWPFLearn_CustomUI.Dialogs;
+using khgWPFLearn_Module1.Models;
 using Prism.Mvvm;
+using Prism.Services.Dialogs;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
+using System;
 using System.Reactive.Disposables;
 
 namespace khgWPFLearn_Module1.ViewModels
@@ -11,15 +14,27 @@ namespace khgWPFLearn_Module1.ViewModels
         private CompositeDisposable _disposables = new CompositeDisposable();
         public ReactiveProperty<string> TestText { get; private set; }
 
+        public ReactiveCommand DialogTest { get; set; } = new ReactiveCommand();
+
         KhgLearnTestModel Model;
-        public KhgLearnUserControl1ViewModel()
+
+        private readonly IDialogService dialogService = null;
+
+        public KhgLearnUserControl1ViewModel(IDialogService dialog)
         {
             Model = new KhgLearnTestModel();
+            dialogService = dialog;
 
             TestText = Model.ToReactivePropertyAsSynchronized(m => m.TestText).AddTo(_disposables);
 
+
+            DialogTest.Subscribe(_ => { OpenWindow(); }).AddTo(_disposables) ;
         }
 
+        private void OpenWindow()
+        {
+            dialogService.ShowDialog("View1");
+        }
         
     }
 }

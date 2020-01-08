@@ -52,6 +52,7 @@
     <Compile Include="Dialogs\CustomDialog.xaml.cs">
       <DependentUpon>CustomDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\DialogServiceExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
