@@ -16,7 +16,7 @@ namespace khgWPFLearn1
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterDialog<khgWPFLearn_CustomUI.Dialogs.CustomDialog>();
+            containerRegistry.RegisterDialogWindow<khgWPFLearn_CustomUI.Dialogs.CustomDialog>();
         }
 
         

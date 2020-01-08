@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Prism.Services.Dialogs;
 
 
 namespace khgWPFLearn_CustomUI.Dialogs
@@ -18,11 +19,13 @@ namespace khgWPFLearn_CustomUI.Dialogs
     /// <summary>
     /// CustomDialog.xaml の相互作用ロジック
     /// </summary>
-    public partial class CustomDialog : Window
+    public partial class CustomDialog : Window, IDialogWindow
     {
         public CustomDialog()
         {
             InitializeComponent();
         }
+
+        public IDialogResult Result { get; set; }
     }
 }
