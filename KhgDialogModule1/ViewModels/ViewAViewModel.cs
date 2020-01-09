@@ -1,15 +1,11 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using khgWPFLearn_CustomUI.Dialogs;
 
 namespace KhgDialogModule1.ViewModels
 {
-    public class ViewAViewModel : BindableBase
+    public class ViewAViewModel : KHGDialogBindingBase
     {
+        
+
         private string _message;
         public string Message
         {
@@ -20,6 +16,7 @@ namespace KhgDialogModule1.ViewModels
         public ViewAViewModel()
         {
             Message = "View A from your Prism Module";
+            this.Title = "なぜか動かないのじゃ？";
         }
     }
 }
