@@ -54,7 +54,7 @@
     </Compile>
     <Compile Include="Dialogs\DialogServiceExtension.cs" />
     <Compile Include="Dialogs\KHGBindingBase.cs" />
-    <Compile Include="Dialogs\KHGDialogBindingBase.cs" />
+    <Compile Include="BindingBase\KHGDialogBindingBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

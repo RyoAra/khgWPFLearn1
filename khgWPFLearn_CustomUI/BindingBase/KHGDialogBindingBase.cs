@@ -2,9 +2,9 @@
 using Prism.Regions;
 using System;
 
-namespace khgWPFLearn_CustomUI.Dialogs
+namespace khgWPFLearn_CustomUI.BindingBase
 {
-    public class KHGDialogBindingBase : KHGBindingBase, IDialogAware,IRegionMemberLifetime
+    public class KHGDialogBindingBase : khgWPFLearn_CustomUI.Dialogs.KHGBindingBase, IDialogAware,IRegionMemberLifetime
     {
         public string Title { set; get; }
 
@@ -20,7 +20,6 @@ namespace khgWPFLearn_CustomUI.Dialogs
 
         public virtual void OnDialogClosed()
         {
-
         }
 
         public virtual void OnDialogOpened(IDialogParameters parameters)

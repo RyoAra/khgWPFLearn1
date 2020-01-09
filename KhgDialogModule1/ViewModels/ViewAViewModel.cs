@@ -1,4 +1,4 @@
-﻿using khgWPFLearn_CustomUI.Dialogs;
+﻿using khgWPFLearn_CustomUI.BindingBase;
 
 namespace KhgDialogModule1.ViewModels
 {
