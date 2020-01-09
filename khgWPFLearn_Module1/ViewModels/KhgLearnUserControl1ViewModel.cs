@@ -33,7 +33,7 @@ namespace khgWPFLearn_Module1.ViewModels
 
         private void OpenWindow()
         {
-            dialogService.ShowDialog("View1");
+            dialogService.ShowDialog("ViewA");
         }
         
     }

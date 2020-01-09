@@ -1,10 +1,10 @@
-﻿<Window x:Class="khgWPFLearn_CustomUI.Dialogs.CustomDialog"
+﻿<mahapps:MetroWindow x:Class="khgWPFLearn_CustomUI.Dialogs.CustomDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title = "{Binding Title}" 
+        Title = "{Binding Title.Value}" 
         SizeToContent = "WidthAndHeight " >
     <Grid>
         
     </Grid>
-</Window>
+</mahapps:MetroWindow>
