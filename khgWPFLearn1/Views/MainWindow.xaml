@@ -7,10 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     prism:ViewModelLocator.AutoWireViewModel="True"
-        mc:Ignorable="d"
-        Title="MainWindow"
+    mc:Ignorable="d"
+    Title="MainWindow"
     ShowTitleBar="True"
-    Background="Red">
+    Background="White">
 
     <mahapps:MetroWindow.Resources>
         

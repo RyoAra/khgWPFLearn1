@@ -1,5 +1,6 @@
 ﻿using Prism.Mvvm;
 using System;
+using System.Reactive.Disposables;
 
 namespace khgWPFLearn_CustomUI.Dialogs
 {
@@ -7,6 +8,8 @@ namespace khgWPFLearn_CustomUI.Dialogs
     {
         //private CompositeDisposable _disposables = new CompositeDisposable();
         private bool _dispose;
+
+        public CompositeDisposable Disposer = new CompositeDisposable();
 
         public void Dispose()
         {

@@ -3,6 +3,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/TextBlock.xaml" />
         <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/Window.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/UserControl.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

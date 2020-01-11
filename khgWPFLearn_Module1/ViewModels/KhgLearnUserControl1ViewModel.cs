@@ -33,7 +33,10 @@ namespace khgWPFLearn_Module1.ViewModels
 
         private void OpenWindow()
         {
-            dialogService.ShowDialog("ViewA");
+            if (dialogService.ShowDialog("ViewA") == ButtonResult.OK)
+            {
+                System.Windows.MessageBox.Show("OKボタン戻り");
+            }
         }
         
     }

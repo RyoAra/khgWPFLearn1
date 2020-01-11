@@ -12,6 +12,8 @@ namespace khgWPFLearn_CustomUI.BindingBase
 
         public event Action<IDialogResult> RequestClose;
 
+        private DialogResult res;
+
         public virtual bool CanCloseDialog()
         {
             return true;
@@ -20,11 +22,21 @@ namespace khgWPFLearn_CustomUI.BindingBase
 
         public virtual void OnDialogClosed()
         {
-            RequestClose?.Invoke(new DialogResult());
+            if (res == null)
+            {
+                res = new DialogResult(ButtonResult.None); 
+            }
+            RequestClose?.Invoke(res);
         }
 
         public virtual void OnDialogOpened(IDialogParameters parameters)
         {
+        }
+
+        public virtual void CloseDialog(DialogResult result)
+        {
+            res = result;
+            OnDialogClosed();
         }
     }
 }
