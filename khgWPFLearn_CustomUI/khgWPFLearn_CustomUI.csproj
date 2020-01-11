@@ -49,6 +49,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behavior\NumericTextBoxBehavior.cs" />
     <Compile Include="Dialogs\CustomDialog.xaml.cs">
       <DependentUpon>CustomDialog.xaml</DependentUpon>
     </Compile>

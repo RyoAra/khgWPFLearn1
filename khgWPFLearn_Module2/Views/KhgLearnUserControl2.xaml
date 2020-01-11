@@ -1,8 +1,10 @@
 ﻿<UserControl x:Class="khgWPFLearn_Module2.Views.KhgLearnUserControl2"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Behavior="clr-namespace:khgWPFLearn_CustomUI.Behavior;assembly=khgWPFLearn_CustomUI"
              Height="600"
              Width="600"
              xmlns:prism="http://prismlibrary.com/"             
@@ -12,6 +14,11 @@
         <StackPanel Orientation="Horizontal">
         <TextBlock Text="{Binding TestText.Value}"/>
         <TextBlock Text="aaaa"/>
+            <TextBox Text="{Binding NumericTest.Value, TargetNullValue=''}">
+                <i:Interaction.Behaviors>
+                    <Behavior:NumericTextBoxBehavior MaxValue="99"/>
+                </i:Interaction.Behaviors>
+            </TextBox>
         </StackPanel>
     </Grid>
 </UserControl>

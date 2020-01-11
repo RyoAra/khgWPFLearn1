@@ -15,6 +15,8 @@ namespace khgWPFLearn_Module2.ViewModels
         private CompositeDisposable _disposables = new CompositeDisposable();
         public ReactiveProperty<string> TestText { get; private set; }
 
+        public ReactiveProperty<int?> NumericTest { get; private set; } = new ReactiveProperty<int?>();
+
         KhgLearnTestModel Model;
         public KhgLearnUserControl2ViewModel()
         {
