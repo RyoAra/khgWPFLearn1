@@ -5,6 +5,7 @@ using Prism.Mvvm;
 using Prism.Regions;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
+using System;
 using System.Collections.ObjectModel;
 using System.Reactive.Disposables;
 
@@ -32,6 +33,8 @@ namespace khgWPFLearn1.ViewModels
 
         public ReactiveCommand MenuChangeCommand { get; private set; } = new ReactiveCommand();
 
+        public ReactiveCommand LoadedCommand { get; private set; } = new ReactiveCommand();
+
         public ObservableCollection<GrobalNavigate> menuItemAttributes { get; set; } = new ObservableCollection<GrobalNavigate>();
 
         public ObservableCollection<GrobalNavigate> OptionMenuItems { get; set; } = new ObservableCollection<GrobalNavigate>();
@@ -50,8 +53,16 @@ namespace khgWPFLearn1.ViewModels
 
             MenuChangeCommand.Subscribe(() => SelectedMenuChanged()).AddTo(_disposables);
 
+            LoadedCommand.Subscribe(_ => LoadedExecute()).AddTo(_disposables);
+
             SelectedMenuItem = menuItemAttributes[0];
         }
+
+        private void LoadedExecute()
+        {
+            this.regionManager.RequestNavigate("ContentRegion", menuItemAttributes[0].ToControlView);
+        }
+
 
         private void SelectedMenuChanged()
         {

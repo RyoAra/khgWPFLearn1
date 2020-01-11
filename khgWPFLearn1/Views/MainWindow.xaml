@@ -7,11 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     prism:ViewModelLocator.AutoWireViewModel="True"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     mc:Ignorable="d"
     Title="MainWindow"
     ShowTitleBar="True"
-    Background="White">
+    SizeToContent="WidthAndHeight"
+    Background="Red">
 
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <mahapps:MetroWindow.Resources>
         
         <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type mahapps:HamburgerMenuGlyphItem}">
@@ -62,7 +69,9 @@
                     Text="\\uE8A5" />
             </Grid>
         </DataTemplate>
+
     </mahapps:MetroWindow.Resources>
+
     <mahapps:HamburgerMenu
             IsPaneOpen="True"
             HamburgerMenuTemplate="{StaticResource HamburgerMenuItem}"
@@ -74,7 +83,7 @@
             OptionsItemsSource="{Binding OptionMenuItems}"
             ItemCommand="{Binding MenuChangeCommand}">
         <mahapps:HamburgerMenu.Content>
-            <ContentControl x:Name="ContentRegion"  Background="White"/>
+            <ContentControl x:Name="ContentRegion"/>
         </mahapps:HamburgerMenu.Content>
     </mahapps:HamburgerMenu>
 </mahapps:MetroWindow>
