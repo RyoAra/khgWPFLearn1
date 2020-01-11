@@ -9,24 +9,34 @@ namespace khgWPFLearn_CustomUI.Behavior
     public class NumericTextBoxBehavior : Behavior<TextBox>
     {
         #region メッセージプロパティ
-        public string Message
-        {
-            get { return (string)GetValue(MessageProperty); }
-            set { SetValue(MessageProperty, value); }
-        }
-
         public decimal? MaxValue
         {
             get { return (decimal?)GetValue(MaxValueProperty); }
             set { SetValue(MaxValueProperty, value); }
         }
 
+        public string DisplayFormat
+        {
+            get { return (string)GetValue(DisplayFormatProperty); }
+            set { SetValue(DisplayFormatProperty, value); }
+        }
+
+        public string InputFormat
+        {
+            get { return (string)GetValue(InputFormatProperty); }
+            set { SetValue(InputFormatProperty, value); }
+        }
+
         // Using a DependencyProperty as the backing store for Message.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty MessageProperty =
-            DependencyProperty.Register("Message", typeof(string), typeof(NumericTextBoxBehavior), new UIPropertyMetadata(null));
 
         public static readonly DependencyProperty MaxValueProperty =
             DependencyProperty.Register("MaxValue", typeof(decimal?), typeof(NumericTextBoxBehavior), new UIPropertyMetadata(null));
+
+        public static readonly DependencyProperty DisplayFormatProperty =
+            DependencyProperty.Register("DisplayFormat", typeof(string), typeof(NumericTextBoxBehavior), new UIPropertyMetadata(null));
+
+        public static readonly DependencyProperty InputFormatProperty =
+            DependencyProperty.Register("InputFormat", typeof(string), typeof(NumericTextBoxBehavior), new UIPropertyMetadata(null));
         #endregion
 
         public NumericTextBoxBehavior()
@@ -38,7 +48,8 @@ namespace khgWPFLearn_CustomUI.Behavior
         {
             base.OnAttached();
             this.AssociatedObject.PreviewTextInput += OnPreviewTextInput;
-            //this.AssociatedObject.KeyDown += InputValueCheck;
+            this.AssociatedObject.LostFocus += DisplayFormatSubmit;
+            this.AssociatedObject.GotFocus += InputFormatSubmit;
         }
 
         // 要素にデタッチされたときの処理。大体イベントハンドラの登録解除をここでやる
@@ -46,19 +57,10 @@ namespace khgWPFLearn_CustomUI.Behavior
         {
             base.OnDetaching();
             this.AssociatedObject.PreviewTextInput -= OnPreviewTextInput;
-            //this.AssociatedObject.KeyDown -= InputValueCheck;
+            this.AssociatedObject.LostFocus -= DisplayFormatSubmit;
+            this.AssociatedObject.GotFocus -= InputFormatSubmit;
         }
 
-        // メッセージが入力されていたらメッセージボックスを出す
-        private void Alert(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(this.Message))
-            {
-                return;
-            }
-
-            MessageBox.Show(this.Message);
-        }
         /// <summary>
         /// テキスト取得時の処理イベント
         /// </summary>
@@ -68,7 +70,7 @@ namespace khgWPFLearn_CustomUI.Behavior
         {
             string tmp = "";
             // 整数値に変換できない場合は処理をキャンセル
-            e.Handled = !CheckTextInput(sender, e.Text,ref tmp);
+            e.Handled = !CheckTextInput(sender, e.Text, ref tmp);
             if (!e.Handled == true)
             {
                 e.Handled = !MaxValueCheck(sender, tmp);
@@ -77,26 +79,6 @@ namespace khgWPFLearn_CustomUI.Behavior
 
         }
 
-        //private void InputValueCheck(object sender, KeyEventArgs e)
-        //{
-        //    if (MaxValue != null)
-        //    {
-        //        var tmp = e.Source as long?;
-        //        if (tmp == null)
-        //        {
-        //            e.Handled = true;
-        //        }
-
-        //        if (tmp > MaxValue)
-        //        {
-        //            e.Handled = true;
-        //        }
-
-        //    }
-
-        //    e.Handled = false;
-        //}
-
         /// <summary>入力した内容で数値となるかチェック</summary>
         /// <param name="sender">TextBox</param>
         /// <param name="addText">追加文字</param>
@@ -104,7 +86,7 @@ namespace khgWPFLearn_CustomUI.Behavior
         /// true : 数値OK
         /// false : 数値NG
         /// </returns>
-        private bool CheckTextInput(object sender, string addText,ref string resText)
+        private bool CheckTextInput(object sender, string addText, ref string resText)
         {
 
             if (sender is TextBox textBox)
@@ -148,6 +130,36 @@ namespace khgWPFLearn_CustomUI.Behavior
 
             }
             return true;
+        }
+
+        private void DisplayFormatSubmit(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(DisplayFormat))
+            {
+                if (sender is TextBox textBox)
+                {
+                    if(decimal.TryParse(textBox.Text, out decimal value))
+                    {
+                        textBox.Text = value.ToString(DisplayFormat);
+                    }
+
+                }
+            }
+        }
+
+        private void InputFormatSubmit(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(InputFormat))
+            {
+                if (sender is TextBox textBox)
+                {
+                    if (decimal.TryParse(textBox.Text, out decimal value))
+                    {
+                        textBox.Text = value.ToString(InputFormat);
+                    }
+
+                }
+            }
         }
 
     }

@@ -11,12 +11,12 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              Background="White">
     <Grid>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Vertical">
         <TextBlock Text="{Binding TestText.Value}"/>
         <TextBlock Text="aaaa"/>
             <TextBox Text="{Binding NumericTest.Value, TargetNullValue=''}">
                 <i:Interaction.Behaviors>
-                    <Behavior:NumericTextBoxBehavior MaxValue="99"/>
+                    <Behavior:NumericTextBoxBehavior MaxValue="99.99" InputFormat="##.##"/>
                 </i:Interaction.Behaviors>
             </TextBox>
         </StackPanel>
