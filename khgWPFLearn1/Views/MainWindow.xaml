@@ -13,24 +13,7 @@
     Background="Red">
 
     <mahapps:MetroWindow.Resources>
-        <Style x:Key="BaseIconStyle" TargetType="{x:Type TextBlock}">
-            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="TextAlignment" Value="Center" />
-        </Style>
-
-        <Style x:Key="SmallIconStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseIconStyle}">
-            <Setter Property="FontSize" Value="16" />
-        </Style>
-
-        <Style x:Key="MediumIconStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseIconStyle}">
-            <Setter Property="FontSize" Value="24" />
-        </Style>
-
-        <Style x:Key="BigIconStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseIconStyle}">
-            <Setter Property="FontSize" Value="48" />
-        </Style>
+        
         <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type mahapps:HamburgerMenuGlyphItem}">
             <Grid Height="48">
                 <Grid.ColumnDefinitions>
@@ -65,10 +48,24 @@
                     Text="{Binding Glyph}" />
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="HamburgerMenuItem" DataType="{x:Type mahapps:HamburgerMenuItem}">
+            <Grid Height="32">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    FontSize="16"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Segoe MDL2 Assets"
+                    Text="\\uE8A5" />
+            </Grid>
+        </DataTemplate>
     </mahapps:MetroWindow.Resources>
     <mahapps:HamburgerMenu
             IsPaneOpen="True"
-
+            HamburgerMenuTemplate="{StaticResource HamburgerMenuItem}"
             DisplayMode="CompactInline"
             ItemsSource="{Binding menuItemAttributes}"
             SelectedItem="{Binding SelectedMenuItem}"
@@ -76,8 +73,8 @@
             OptionsItemTemplate="{StaticResource OptionItemTemplate}"
             OptionsItemsSource="{Binding OptionMenuItems}"
             ItemCommand="{Binding MenuChangeCommand}">
-        <mahapps:HamburgerMenu.Content >
-            <ContentControl x:Name="ContentRegion" />
+        <mahapps:HamburgerMenu.Content>
+            <ContentControl x:Name="ContentRegion"  Background="White"/>
         </mahapps:HamburgerMenu.Content>
     </mahapps:HamburgerMenu>
 </mahapps:MetroWindow>

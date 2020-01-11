@@ -14,12 +14,13 @@ namespace khgWPFLearn_CustomUI.BindingBase
 
         public virtual bool CanCloseDialog()
         {
-            return false;
+            return true;
             //throw new NotImplementedException();
         }
 
         public virtual void OnDialogClosed()
         {
+            RequestClose?.Invoke(new DialogResult());
         }
 
         public virtual void OnDialogOpened(IDialogParameters parameters)
