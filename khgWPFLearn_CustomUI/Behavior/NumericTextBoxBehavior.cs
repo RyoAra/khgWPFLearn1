@@ -14,6 +14,12 @@ namespace khgWPFLearn_CustomUI.Behavior
             set { SetValue(MaxValueProperty, value); }
         }
 
+        public decimal? MinValue
+        {
+            get { return (decimal?)GetValue(MinValueProperty); }
+            set { SetValue(MinValueProperty, value); }
+        }
+
         public string DisplayFormat
         {
             get { return (string)GetValue(DisplayFormatProperty); }
@@ -30,6 +36,9 @@ namespace khgWPFLearn_CustomUI.Behavior
 
         public static readonly DependencyProperty MaxValueProperty =
             DependencyProperty.Register("MaxValue", typeof(decimal?), typeof(NumericTextBoxBehavior), new UIPropertyMetadata(null));
+
+        public static readonly DependencyProperty MinValueProperty =
+            DependencyProperty.Register("MinValue", typeof(decimal?), typeof(NumericTextBoxBehavior), new UIPropertyMetadata(null));
 
         public static readonly DependencyProperty DisplayFormatProperty =
             DependencyProperty.Register("DisplayFormat", typeof(string), typeof(NumericTextBoxBehavior), new UIPropertyMetadata(null));
@@ -73,6 +82,10 @@ namespace khgWPFLearn_CustomUI.Behavior
             if (!e.Handled == true)
             {
                 e.Handled = !MaxValueCheck(sender, tmp);
+            }
+            if (!e.Handled == true)
+            {
+                e.Handled = !MinValueCheck(sender, tmp);
             }
 
 
@@ -131,13 +144,32 @@ namespace khgWPFLearn_CustomUI.Behavior
             return true;
         }
 
+        private bool MinValueCheck(object sender, string addText)
+        {
+            if (MinValue != null)
+            {
+                var tmp = decimal.TryParse(addText, out decimal value);
+                if (tmp == false)
+                {
+                    return false;
+                }
+
+                if (value < MinValue)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+
         private void DisplayFormatSubmit(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(DisplayFormat))
             {
                 if (sender is TextBox textBox)
                 {
-                    if(decimal.TryParse(textBox.Text, out decimal value))
+                    if (decimal.TryParse(textBox.Text, out decimal value))
                     {
                         textBox.Text = value.ToString(DisplayFormat);
                     }

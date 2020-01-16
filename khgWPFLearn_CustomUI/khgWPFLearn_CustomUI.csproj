@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behavior\NumericTextBoxBehavior.cs" />
+    <Compile Include="Behavior\WindowCloseBehavior.cs" />
+    <Compile Include="BindingBase\DisposeBindbleBase.cs" />
     <Compile Include="Dialogs\CustomDialog.xaml.cs">
       <DependentUpon>CustomDialog.xaml</DependentUpon>
     </Compile>

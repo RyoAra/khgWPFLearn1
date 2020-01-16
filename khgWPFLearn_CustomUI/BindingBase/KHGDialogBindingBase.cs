@@ -4,7 +4,7 @@ using System;
 
 namespace khgWPFLearn_CustomUI.BindingBase
 {
-    public class KHGDialogBindingBase : khgWPFLearn_CustomUI.Dialogs.KHGBindingBase, IDialogAware,IRegionMemberLifetime
+    public class KHGDialogBindingBase : DisposeBindbleBase, IDialogAware, IRegionMemberLifetime
     {
         public string Title { set; get; }
 
@@ -24,7 +24,7 @@ namespace khgWPFLearn_CustomUI.BindingBase
         {
             if (res == null)
             {
-                res = new DialogResult(ButtonResult.None); 
+                res = new DialogResult(ButtonResult.None);
             }
             RequestClose?.Invoke(res);
         }
@@ -37,6 +37,11 @@ namespace khgWPFLearn_CustomUI.BindingBase
         {
             res = result;
             OnDialogClosed();
+        }
+
+        public virtual void CloseDialog()
+        {
+            CloseDialog(new DialogResult(ButtonResult.None));
         }
     }
 }
