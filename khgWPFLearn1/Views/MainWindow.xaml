@@ -66,7 +66,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontFamily="Segoe MDL2 Assets"
-                    Text="\\uE8A5" />
+                    Text="&#xE700;" />
             </Grid>
         </DataTemplate>
 
