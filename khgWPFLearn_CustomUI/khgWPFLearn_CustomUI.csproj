@@ -49,6 +49,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behavior\ButtonBehavior.cs" />
     <Compile Include="Behavior\NumericTextBoxBehavior.cs" />
     <Compile Include="Behavior\WindowCloseBehavior.cs" />
     <Compile Include="BindingBase\DisposeBindbleBase.cs" />
