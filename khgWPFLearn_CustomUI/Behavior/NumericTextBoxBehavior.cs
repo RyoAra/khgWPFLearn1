@@ -77,15 +77,26 @@ namespace khgWPFLearn_CustomUI.Behavior
         private void OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             string tmp = "";
+            TextBox textBox = sender as TextBox;
             // 整数値に変換できない場合は処理をキャンセル
             e.Handled = !CheckTextInput(sender, e.Text, ref tmp);
             if (!e.Handled == true)
             {
                 e.Handled = !MaxValueCheck(sender, tmp);
             }
+            else
+            {
+                textBox.Undo();
+                return;
+            }
             if (!e.Handled == true)
             {
                 e.Handled = !MinValueCheck(sender, tmp);
+            }
+            else
+            {
+                textBox.Undo();
+                return;
             }
 
 
@@ -114,7 +125,8 @@ namespace khgWPFLearn_CustomUI.Behavior
                 var text = resText = part1 + addText + part2;
 
                 // 作成した文字列が整数に変換できるか
-                return decimal.TryParse(text, out decimal value);
+                var result = decimal.TryParse(text, out decimal value);
+                return result;
             }
             else
             {

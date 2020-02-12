@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behavior\ButtonBehavior.cs" />
+    <Compile Include="Behavior\ListBoxItemBehavior.cs" />
     <Compile Include="Behavior\NumericTextBoxBehavior.cs" />
     <Compile Include="Behavior\WindowCloseBehavior.cs" />
     <Compile Include="BindingBase\DisposeBindbleBase.cs" />
@@ -89,6 +90,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ListBoxItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

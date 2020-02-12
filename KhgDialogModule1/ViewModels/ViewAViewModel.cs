@@ -18,10 +18,17 @@ namespace KhgDialogModule1.ViewModels
 
         public ReactiveCommand OkbuttonClick { get; set; } = new ReactiveCommand();
 
+        public ReactiveCollection<string> ListTest = new ReactiveCollection<string>();
+        public ReactiveProperty<string> SelectedTest = new ReactiveProperty<string>();
+
         public ViewAViewModel()
         {
             Message = "View A from your Prism Module";
             this.Title = "なぜか動かないのじゃ？";
+
+            ListTest.Add("一こめ");
+            ListTest.Add("２こめ");
+            ListTest.Add("３こめ");
 
             OkbuttonClick.Subscribe(_ => { CloseDialog(new Prism.Services.Dialogs.DialogResult(Prism.Services.Dialogs.ButtonResult.OK)); }).AddTo(Disposer);
         }

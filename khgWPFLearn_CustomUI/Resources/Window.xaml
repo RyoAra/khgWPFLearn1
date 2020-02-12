@@ -17,7 +17,5 @@
         <Setter Property="MinWidth" Value="300"/>
         <Setter Property="MinHeight" Value="700"/>
     </Style>
-    <Style x:Key="{x:Type UserControl}" TargetType="UserControl">
-        <Setter Property="Background" Value="Gray"/>
-    </Style>
+
 </ResourceDictionary>
