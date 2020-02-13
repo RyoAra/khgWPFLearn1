@@ -58,6 +58,7 @@ namespace khgWPFLearn_CustomUI.Behavior
             this.AssociatedObject.PreviewTextInput += OnPreviewTextInput;
             this.AssociatedObject.LostFocus += DisplayFormatSubmit;
             this.AssociatedObject.GotFocus += InputFormatSubmit;
+            this.AssociatedObject.TextChanged += TextChanged;
         }
 
         // 要素にデタッチされたときの処理。大体イベントハンドラの登録解除をここでやる
@@ -67,6 +68,7 @@ namespace khgWPFLearn_CustomUI.Behavior
             this.AssociatedObject.PreviewTextInput -= OnPreviewTextInput;
             this.AssociatedObject.LostFocus -= DisplayFormatSubmit;
             this.AssociatedObject.GotFocus -= InputFormatSubmit;
+            this.AssociatedObject.TextChanged -= TextChanged;
         }
 
         /// <summary>
@@ -86,7 +88,7 @@ namespace khgWPFLearn_CustomUI.Behavior
             }
             else
             {
-                textBox.Undo();
+                //textBox.Undo();
                 return;
             }
             if (!e.Handled == true)
@@ -95,11 +97,22 @@ namespace khgWPFLearn_CustomUI.Behavior
             }
             else
             {
-                textBox.Undo();
+                //textBox.Undo();
                 return;
             }
 
 
+        }
+
+        private void TextChanged(object sender,TextChangedEventArgs e)
+        {
+            string tmp = "";
+            TextBox textBox = sender as TextBox;
+            e.Handled = !CheckTextInput(sender, textBox.Text, ref tmp);
+            if (e.Handled)
+            {
+                textBox.Text = "";
+            }
         }
 
         /// <summary>入力した内容で数値となるかチェック</summary>
