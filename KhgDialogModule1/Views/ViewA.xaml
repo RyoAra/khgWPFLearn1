@@ -25,7 +25,7 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
             <Button Content="OK" Command="{Binding OkbuttonClick}"/>
-            <ListBox ItemsSource="{Binding ListTest}" SelectedItem="{Binding SelectedTest}" Height="40" HorizontalAlignment="Left" Width="100" />
+            <ListBox ItemsSource="{Binding ListTest}" SelectedItem="{Binding SelectedTest.Value}" behavior:ListBoxItemBehavior.SelectedItemText="Test" Height="200" HorizontalAlignment="Left" />
         </StackPanel>
     </Grid>
 </UserControl>

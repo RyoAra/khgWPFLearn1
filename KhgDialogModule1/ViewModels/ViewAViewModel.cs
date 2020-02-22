@@ -18,8 +18,8 @@ namespace KhgDialogModule1.ViewModels
 
         public ReactiveCommand OkbuttonClick { get; set; } = new ReactiveCommand();
 
-        public ReactiveCollection<string> ListTest = new ReactiveCollection<string>();
-        public ReactiveProperty<string> SelectedTest = new ReactiveProperty<string>();
+        public ReactiveCollection<string> ListTest { get; set; } = new ReactiveCollection<string>();
+        public ReactiveProperty<string> SelectedTest { get; set; } = new ReactiveProperty<string>();
 
         public ViewAViewModel()
         {

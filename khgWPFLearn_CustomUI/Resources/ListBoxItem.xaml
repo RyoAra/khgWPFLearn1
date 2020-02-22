@@ -6,35 +6,38 @@
     <Style x:Key="DefaultListBoxItem" TargetType="{x:Type ListBoxItem}">
         <Setter Property="FontSize" Value="8"/>
         <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Width" Value="auto"/>
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <!--<Setter Property="HorizontalAlignment" Value="Left"/>-->
         <Setter Property="Background" Value="White"/>
         <Setter x:Name="SelectedItemText" Property="Behavior:ListBoxItemBehavior.SelectedItemText" Value=""/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Grid x:Name="ButtonMain">
+                    <Grid x:Name="ButtonMain" Background="{TemplateBinding Background}" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" CornerRadius="10" Padding="0,0,5,4" Grid.Column="1" RenderTransformOrigin="0.844,0.439">
-
+                        <Border x:Name="ButtonBorder" Grid.Column="0" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" CornerRadius="10" >
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="{TemplateBinding VerticalAlignment}"  Margin="8,6,12,10"/>
                         </Border>
-                        <ContentPresenter Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="{TemplateBinding VerticalAlignment}"  Margin="8,6,12,10"/>
-                        <StackPanel Grid.Column="1" Margin="8,0,0,8"/>
-                        <TextBlock x:Name="SelectedText" Text="{DynamicResource SelectedItemText}" Grid.Column="2" Margin="8,6,12,10"/>
+                        <StackPanel x:Name="CenterStack" Grid.Column="1" Margin="8,0,0,8" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="SelectedText" Text="{DynamicResource SelectedItemText}" HorizontalAlignment="Right" Grid.Column="2" Margin="8,6,12,10"/>
                     </Grid>
+
                     <ControlTemplate.Triggers>
 
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" Value="RightBlue" TargetName="ButtonBorder"/>
+                            <Setter Property="Background" Value="Blue" TargetName="ButtonMain"/>
+                            
+                            <Setter Property="IsEnabled" Value="True" TargetName="SelectedText"/>
                         </Trigger>
-                        <Trigger Property="IsSelected" Value="True" >
-                            <Setter Property="Background" Value="Blue" TargetName="ButtonBorder"/>
+                        <Trigger Property="IsSelected" Value="true" >
+                            <Setter Property="Background" Value="Blue" TargetName="ButtonMain"/>
                             <Setter Property="IsEnabled" Value="True" TargetName="SelectedText"/>
                         </Trigger>
                     </ControlTemplate.Triggers>

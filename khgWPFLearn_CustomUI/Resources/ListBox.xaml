@@ -5,8 +5,28 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/ListBoxItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
+
     <Style TargetType="{x:Type ListBox}">
+        <!--<Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>-->
+        <Setter Property="FontSize" Value="8"/>
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="WhiteSmoke"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultListBoxItem}" />
+    </Style>
+
+
+    <Style x:Key="ListBoxTest" TargetType="{x:Type ListBox}">
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -14,15 +34,15 @@
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="FontSize" Value="8"/>
-        <Setter Property="MinHeight" Value="20"/>
-        <Setter Property="Width" Value="Auto"/>
-        <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Background" Value="White"/>
-        <Setter Property="SelectionMode" Value="Single"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultListBoxItem}" />
+
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Foreground" Value="Red" />
+                    <Setter Property="FontSize" Value="15" />
+                    <Setter Property="Background" Value="Aqua" />
+                </Style>
+            </Setter.Value>
+        </Setter>
     </Style>
-    
 </ResourceDictionary>
