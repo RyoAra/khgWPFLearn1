@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:KhgDialogModule1.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:behavior ="clr-namespace:khgWPFLearn_CustomUI.Behavior;assembly=khgWPFLearn_CustomUI"
+             xmlns:behavior ="clr-namespace:khgWPFLearn_CustomUI.Controls;assembly=khgWPFLearn_CustomUI"
+             
              mc:Ignorable="d" 
              Width="600"
              Height="600"
@@ -25,7 +26,8 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
             <Button Content="OK" Command="{Binding OkbuttonClick}"/>
-            <ListBox ItemsSource="{Binding ListTest}" SelectedItem="{Binding SelectedTest.Value}" behavior:ListBoxItemBehavior.SelectedItemText="Test" Height="200" HorizontalAlignment="Left" />
+            <ListBox 
+                ItemsSource="{Binding ListTest}" SelectedItem="{Binding SelectedTest.Value}" behavior:ListBoxExtention.SelectedItemText="Test" Height="200" HorizontalAlignment="Left" />
         </StackPanel>
     </Grid>
 </UserControl>

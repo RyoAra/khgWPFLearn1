@@ -1,22 +1,10 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Interactivity;
 
 namespace khgWPFLearn_CustomUI.Behavior
 {
     public class ListBoxItemBehavior : Behavior<ListBoxItem>
     {
-        public static string GetSelectedItemText(DependencyObject obj)
-        {
-            return (string)obj.GetValue(SelectedItemTextProperty);
-        }
-        public static void SetSelectedItemText(DependencyObject obj, string value)
-        {
-            obj.SetValue(SelectedItemTextProperty, value);
-        }
-
-        private static readonly DependencyProperty SelectedItemTextProperty =
-        DependencyProperty.Register("SelectedItemText", typeof(string), typeof(ListBoxItemBehavior), new UIPropertyMetadata(null));
 
         public ListBoxItemBehavior()
         {

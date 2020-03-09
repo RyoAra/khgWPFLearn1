@@ -12,8 +12,9 @@
     Title="MainWindow"
     ShowTitleBar="True"
     SizeToContent="WidthAndHeight"
+    WindowTitleBrush="Gray"
     Background="Red">
-    
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedCommand}" />

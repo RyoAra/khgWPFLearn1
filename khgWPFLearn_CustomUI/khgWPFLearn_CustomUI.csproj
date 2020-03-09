@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behavior\ButtonBehavior.cs" />
+    <Compile Include="Controls\ListBoxExtention.cs" />
     <Compile Include="Behavior\ListBoxItemBehavior.cs" />
     <Compile Include="Behavior\NumericTextBoxBehavior.cs" />
     <Compile Include="Behavior\WindowCloseBehavior.cs" />
