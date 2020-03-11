@@ -7,5 +7,6 @@
         <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/UserControl.xaml" />
         <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/ListBoxItem.xaml" />
         <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/ListBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/TextBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

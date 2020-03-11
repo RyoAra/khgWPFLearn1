@@ -28,7 +28,7 @@
 
 
 
-    <Style x:Key="CloseButtonStyle" TargetType="{x:Type Button}">
+    <!--<Style x:Key="CloseButtonStyle" TargetType="{x:Type Button}">
 
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -48,5 +48,5 @@
 
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 </ResourceDictionary>
