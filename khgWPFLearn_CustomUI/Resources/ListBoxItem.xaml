@@ -2,9 +2,10 @@
                     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                     xmlns:Behavior="clr-namespace:khgWPFLearn_CustomUI.Behavior"
                     xmlns:Controls="clr-namespace:khgWPFLearn_CustomUI.Controls"
+                    xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Style x:Key="DefaultListBoxItem" TargetType="{x:Type ListBoxItem}">
+    <Style x:Key="DefaultListBoxItem" TargetType="{x:Type ListBoxItem}" >
         <Setter Property="FontSize" Value="8"/>
         <Setter Property="MinHeight" Value="20"/>
         <Setter Property="Width" Value="auto"/>

@@ -15,23 +15,6 @@
     WindowTitleBrush="Gray"
     Background="Red">
 
-    <!--<mahapps:MetroWindow.WindowCloseButtonStyle>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" Value="Red"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </mahapps:MetroWindow.WindowCloseButtonStyle>-->
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -39,56 +22,56 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <mahapps:MetroWindow.Resources>
-        
-        <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type mahapps:HamburgerMenuGlyphItem}">
-            <Grid Height="48">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="48" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <TextBlock
+        <ResourceDictionary>
+            <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type mahapps:HamburgerMenuGlyphItem}">
+                <Grid Height="48">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
                     Grid.Column="0"
                     FontSize="16"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontFamily="Segoe MDL2 Assets"
                     Text="{Binding Glyph}" />
-                <TextBlock
+                    <TextBlock
                     Grid.Column="1"
                     VerticalAlignment="Center"
                     FontSize="16"
                     Text="{Binding Text}" />
-            </Grid>
-        </DataTemplate>
-        <DataTemplate x:Key="OptionItemTemplate" DataType="{x:Type mahapps:HamburgerMenuGlyphItem}">
-            <Grid Height="48">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="48" />
-                </Grid.ColumnDefinitions>
-                <TextBlock
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="OptionItemTemplate" DataType="{x:Type mahapps:HamburgerMenuGlyphItem}">
+                <Grid Height="48">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
                     Grid.Column="0"
                     FontSize="16"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontFamily="Segoe MDL2 Assets"
                     Text="{Binding Glyph}" />
-            </Grid>
-        </DataTemplate>
-        <DataTemplate x:Key="HamburgerMenuItem" DataType="{x:Type mahapps:HamburgerMenuItem}">
-            <Grid Height="32">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <TextBlock
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="HamburgerMenuItem" DataType="{x:Type mahapps:HamburgerMenuItem}">
+                <Grid Height="32">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
                     Grid.Column="0"
                     FontSize="16"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontFamily="Segoe MDL2 Assets"
                     Text="&#xE700;" />
-            </Grid>
-        </DataTemplate>
-
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
     </mahapps:MetroWindow.Resources>
 
     <mahapps:HamburgerMenu
