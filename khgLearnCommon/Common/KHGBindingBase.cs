@@ -1,7 +1,7 @@
 ﻿using Prism.Mvvm;
 using System;
 
-namespace khgWPFLearn_CustomUI.Dialogs
+namespace khgLearnCommon.Common
 {
     public class KHGBindingBase : BindableBase,IDisposable
     {

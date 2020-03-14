@@ -60,7 +60,6 @@
       <DependentUpon>CustomDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\DialogServiceExtension.cs" />
-    <Compile Include="Dialogs\KHGBindingBase.cs" />
     <Compile Include="BindingBase\KHGDialogBindingBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -85,7 +84,12 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\khgLearnCommon\khgLearnCommon.csproj">
+      <Project>{8834bb1e-1469-4d30-bacb-ad4e857f8c0e}</Project>
+      <Name>khgLearnCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Dialogs\CustomDialog.xaml">
       <SubType>Designer</SubType>

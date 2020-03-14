@@ -1,5 +1,5 @@
 ﻿using khgWPFLearn_CustomUI.BindingBase;
-using khgWPFLearn_CustomUI.Dialogs;
+using khgLearnCommon.Common;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using System;

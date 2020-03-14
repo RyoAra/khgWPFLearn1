@@ -78,6 +78,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\khgLearnCommon\khgLearnCommon.csproj">
+      <Project>{8834bb1e-1469-4d30-bacb-ad4e857f8c0e}</Project>
+      <Name>khgLearnCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\khgWPFLearn_CustomUI\khgWPFLearn_CustomUI.csproj">
       <Project>{39d17387-3425-4755-9350-074fbaed7c10}</Project>
       <Name>khgWPFLearn_CustomUI</Name>
