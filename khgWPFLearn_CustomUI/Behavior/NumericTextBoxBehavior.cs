@@ -108,10 +108,22 @@ namespace khgWPFLearn_CustomUI.Behavior
         {
             string tmp = "";
             TextBox textBox = sender as TextBox;
-            e.Handled = !CheckTextInput(sender, textBox.Text, ref tmp);
-            if (e.Handled)
+            if (decimal.TryParse(textBox.Text, System.Globalization.NumberStyles.Currency, System.Globalization.CultureInfo.CurrentCulture, out decimal res))
             {
-                textBox.Text = "";
+                // 金額の場合少し面倒なのでいったんこちらで対応
+                e.Handled = !CheckTextInput(sender, res.ToString(), ref tmp);
+                if (e.Handled)
+                {
+                    textBox.Text = "";
+                }
+            }
+            else
+            {
+                e.Handled = !CheckTextInput(sender, textBox.Text, ref tmp);
+                if (e.Handled)
+                {
+                    textBox.Text = "";
+                }
             }
         }
 
