@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/TextBlock.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/Window.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/UserControl.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/ListBoxItem.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/ListBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/DataGrid.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/DataGridCell.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

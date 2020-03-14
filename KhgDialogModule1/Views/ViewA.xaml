@@ -28,6 +28,7 @@
             <Button Content="OK" Command="{Binding OkbuttonClick}"/>
             <ListBox 
                 ItemsSource="{Binding ListTest}" SelectedItem="{Binding SelectedTest.Value}" behavior:ListBoxExtention.SelectedItemText="Test" Height="200" HorizontalAlignment="Left" />
+            <DataGrid ItemsSource="{Binding GridTest}" SelectedItem="{Binding GridSelectTest.Value}" AutoGenerateColumns="True"/>
         </StackPanel>
     </Grid>
 </UserControl>
