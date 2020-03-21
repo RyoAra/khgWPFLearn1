@@ -6,6 +6,8 @@ namespace khgLearnCommon.DataBaseCommon
     {
         public bool IsValid{ get; set; }
 
+        public Func<bool> Execute { get; set; }
+
         protected override bool SetProperty<T>(ref T storage, T value, string propertyName = null)
         {
             IsValid = true;
