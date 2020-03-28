@@ -1,16 +1,20 @@
-﻿using System;
+﻿using Dapper;
+using Dapper.FastCrud;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Common;
 using System.Linq;
 using System.Reflection;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Data;
-using System.ComponentModel.DataAnnotations;
-using Dapper;
 
 namespace khgLearnCommon.DataBaseCommon
 {
     public class DataBaseCommon
     {
+        private DbConnection  dbConnection;
+
         public string ConnectionString
         {
             get => _connectionString;
@@ -19,46 +23,41 @@ namespace khgLearnCommon.DataBaseCommon
         private string _connectionString;
 
 
-        //sync version
-        T GeneralExecuteAction<T>(Func<ISession, T> action)
+        public void SetConnectionString(SqlDialect sqlDialect, string connectionString)
         {
-            lastDbError = DbError.Ok;
-            using (var ctx = GetContextForStatement())
-            {
-                try
-                {
-                    T result = action(ctx.session);
-                    ctx.CommitTransactionIfExists();
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    ctx.RollbackTransactionIfExists();
-                    lastDbError = new DbError(ex);
-                    return default(T);
-                }
-            }
+            ConnectionString = connectionString;
+            OrmConfiguration.DefaultDialect = sqlDialect;
+            dbConnection = new SqlConnection(ConnectionString);
         }
-        //async version 
-        async Task<T> GeneralExecuteAction<T>(Func<ISession, Task<T>> action)
+
+        public void SetConnectionString(SqlDialect sqlDialect)
         {
-            lastDbError = DbError.Ok;
-            using (var ctx = GetContextForStatement())
-            {
-                try
-                {
-                    T result = await action(ctx.session);
-                    await ctx.CommitTransactionIfExistsAsync();
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    await ctx.RollbackTransactionIfExistsAsync();
-                    lastDbError = new DbError(ex);
-                    return default(T);
-                }
-            }
+            OrmConfiguration.DefaultDialect = sqlDialect;
+            dbConnection = new SqlConnection(ConnectionString);
         }
+
+
+        public bool DBOpen()
+        {
+            dbConnection.Open();
+
+            return true;
+        }
+
+        public bool DBOpenAsync()
+        {
+            dbConnection.OpenAsync();
+
+            return true;
+        }
+
+        public bool DBClose()
+        {
+            dbConnection.Close();
+
+            return true;
+        }
+       
 
         public async Task<bool> Update(object updateRow, object oldRow)
         {
@@ -96,8 +95,50 @@ namespace khgLearnCommon.DataBaseCommon
                     }
 
                     // 更新した分だけにしたいけど今はいったん全部で・・・
-                    var sqlStatement = "Update @TableName Set @setString WHERE @whereString";
-                    await connection.ExecuteAsync(sqlStatement, TableName, setString, whereString);
+                    var sqlStatement = "Update {0} Set {1} WHERE {2}";
+                    sqlStatement = string.Format(sqlStatement, TableName, setString, whereString);
+                    await connection.ExecuteAsync(sqlStatement);
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> Insert(object insertRow)
+        {
+            string TableName = insertRow.GetType().Name;
+
+            // ここでキー項目&データ取得
+            var update = GetAllKeys(insertRow.GetType(), insertRow);
+            var insertData = GetAllPropertis(insertRow.GetType(), insertRow);
+            string columnName="";
+            string data = "";
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+                    bool isFirst = true;
+                    for (int i = 0; i < insertData.Count; i++)
+                    {
+                       
+                        if (isFirst == false)
+                        {
+                            columnName += "'";
+                            data += "'";
+                        }
+                        isFirst = false;
+                        columnName += insertData.ElementAt(i).Key;
+                        data += insertData.ElementAt(i).Value?.ToString();
+                    }
+
+                    // 更新した分だけにしたいけど今はいったん全部で・・・
+                    var sqlStatement = "Insert Into {0} ({1})  Values ({2})";
+                    sqlStatement = string.Format(sqlStatement, TableName, columnName, data);
+                    await connection.ExecuteAsync(sqlStatement);
                 }
             }
             catch (Exception e)
@@ -132,8 +173,11 @@ namespace khgLearnCommon.DataBaseCommon
                         // 考えるの面倒なので1=1入れてから対応
                         whereString += " AND " + delKey.ElementAt(i).Key + " = " + delKey.ElementAt(i).Value?.ToString();
                     }
-                    var sqlStatement = "DELETE @TableName WHERE @whereString";
-                    await connection.ExecuteAsync(sqlStatement, TableName, whereString);
+                    //var sqlStatement = "Update {0} Set {1} WHERE {2}";
+                    //var sqlStatement = "DELETE @TableName WHERE @whereString";
+                    var sqlStatement = "DELETE {0} WHERE {1}";
+                    sqlStatement = string.Format(sqlStatement, TableName, whereString);
+                    await connection.ExecuteAsync(sqlStatement);
                 }
             }
             catch (Exception e)
