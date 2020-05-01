@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:Behavior="clr-namespace:khgWPFLearn_CustomUI.Behavior"
-                    xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
-                    xmlns:local="clr-namespace:khgWPFLearn_CustomUI.Resources">
+                    xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls">
 
 
     <Style TargetType="{x:Type TextBox}" BasedOn="{DynamicResource MetroTextBox}">
