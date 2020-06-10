@@ -21,8 +21,7 @@
         <StackPanel Orientation="Vertical">
             <TextBlock Text="{Binding TestText.Value}"/>
             <TextBlock Text="aaaa"/>
-            <Button Content="ダイアログウィンドウ手st" behavior:ButtonBehavior.SubmitButtonFlag="True" Command="{Binding DialogTest}"/>
+            <Button  Content="ダイアログウィンドウ手st" behavior:ButtonBehavior.SubmitButtonFlag="True" Command="{Binding DialogTest}"/>
         </StackPanel>
-
     </Grid>
 </UserControl>

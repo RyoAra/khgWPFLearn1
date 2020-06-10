@@ -1,5 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
+using System;
 using System.Windows;
 
 namespace khgWPFLearn1
@@ -9,6 +10,8 @@ namespace khgWPFLearn1
     /// </summary>
     public partial class App 
     {
+        private ResourceDictionary dict;
+
         protected override Window CreateShell()
         {
             return Container.Resolve<Views.MainWindow>();
@@ -31,5 +34,17 @@ namespace khgWPFLearn1
         }
 
         
+        public void ChangeTheme(string themeName)
+        {
+            if(dict == null)
+            {
+                dict = new ResourceDictionary();
+                Application.Current.Resources.MergedDictionaries.Add(dict);
+            }
+            string themeUri = string.Format(
+                "pack://application:,,,/Themes/{0}.xaml", themeName);
+            dict.Source = new Uri(themeUri);
+        }
+
     }
 }
