@@ -6,16 +6,16 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/MergeDictionarys.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
-
 
     <Style x:Key="{x:Type mahapps:MetroWindow}" TargetType="mahapps:MetroWindow">
         <Setter Property="Background" Value="Gray"/>
         <Setter Property="MinWidth" Value="300"/>
         <Setter Property="MinHeight" Value="500"/>
         <Setter Property="WindowCloseButtonStyle" Value="{StaticResource CloseButtonLight}"/>
+        <Setter Property="WindowMaxButtonStyle" Value="{StaticResource BaseMetroWindowButtonStyle}"/>
+        <Setter Property="WindowMinButtonStyle" Value="{StaticResource BaseMetroWindowButtonStyle}"/>
     </Style>
     <Style x:Key="MinimumWindow" TargetType="mahapps:MetroWindow">
         <Setter Property="Background" Value="Gray"/>
@@ -28,6 +28,8 @@
         <Setter Property="MinWidth" Value="300"/>
         <Setter Property="MinHeight" Value="700"/>
         <Setter Property="WindowCloseButtonStyle" Value="{StaticResource CloseButtonLight}"/>
+        <Setter Property="WindowMaxButtonStyle" Value="{StaticResource BaseMetroWindowButtonStyle}"/>
+        <Setter Property="WindowMinButtonStyle" Value="{StaticResource BaseMetroWindowButtonStyle}"/>
     </Style>
 
 

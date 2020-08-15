@@ -9,6 +9,10 @@
         <Setter Property="ItemContainerStyle" Value="{StaticResource MaterialListBoxItem}"/>
     </Style>-->
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/khgWPFLearn_CustomUI;component/Resources/MergeDictionarys.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style TargetType="{x:Type ListBox}" >
         <Setter Property="FontSize" Value="8"/>
         <Setter Property="MinHeight" Value="20"/>
@@ -18,8 +22,8 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Background" Value="WhiteSmoke"/>
         <Setter Property="SelectionMode" Value="Single"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultListBoxItem}"/>
-        <!--<Setter Property="ItemContainerStyle" >
+        <!--<Setter Property="ItemContainerStyle" Value="{StaticResource DefaultListBoxItem}"/>-->
+        <Setter Property="ItemContainerStyle" >
             <Setter.Value>
                 <Style x:Name="ListItem" TargetType="{x:Type ListBoxItem}">
                     <Setter Property="Template">
@@ -57,7 +61,7 @@
                     </Setter>
                 </Style>
             </Setter.Value>
-        </Setter>-->
+        </Setter>
     </Style>
 
     <Style x:Key="ListBoxSelected" TargetType="{x:Type ListBox}">

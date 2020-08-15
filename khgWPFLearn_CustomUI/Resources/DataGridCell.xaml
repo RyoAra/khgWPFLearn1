@@ -3,7 +3,7 @@
                     xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                     xmlns:local="clr-namespace:khgWPFLearn_CustomUI.Resources">
     <!--Control colors.-->
-    <Color x:Key="WindowColor">#FFE8EDF9</Color>
+    <!--<Color x:Key="WindowColor">#FFE8EDF9</Color>
     <Color x:Key="ContentAreaColorLight">#FFC5CBF9</Color>
     <Color x:Key="ContentAreaColorDark">#FF7381F9</Color>
 
@@ -25,7 +25,7 @@
     <Color x:Key="GlyphColor">#FF444444</Color>
     <Color x:Key="GlyphMouseOver">sc#1, 0.004391443, 0.002428215, 0.242281124</Color>
 
-    <!--Border colors-->
+    --><!--Border colors--><!--
     <Color x:Key="BorderLightColor">#FFCCCCCC</Color>
     <Color x:Key="BorderMediumColor">#FF888888</Color>
     <Color x:Key="BorderDarkColor">#FF444444</Color>
@@ -38,7 +38,7 @@
 
     <Color x:Key="DefaultBorderBrushDarkColor">Black</Color>
 
-    <!--Control-specific resources.-->
+    --><!--Control-specific resources.--><!--
     <Color x:Key="HeaderTopColor">#FFC5CBF9</Color>
     <Color x:Key="DatagridCurrentCellBorderColor">Black</Color>
     <Color x:Key="SliderTrackDarkColor">#FFC5CBF9</Color>
@@ -71,8 +71,8 @@
                     Offset="1" />
             </GradientStopCollection>
         </LinearGradientBrush.GradientStops>
-    </LinearGradientBrush>
-    <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
+    </LinearGradientBrush>-->
+    <!--<Style x:Name="DataGridCellTest" x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridCell}">
@@ -108,8 +108,8 @@
         </Setter>
     </Style>
 
-    <!--Style and template for the DataGridRow.-->
-    <Style TargetType="{x:Type DataGridRow}">
+    --><!--Style and template for the DataGridRow.--><!--
+    <Style x:Name="DataGridRowTest" TargetType="{x:Type DataGridRow}">
         <Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Color="{DynamicResource ControlLightColor}" />
@@ -149,7 +149,7 @@
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
 
-                                <!--Provide a different appearance for every other row.-->
+                                --><!--Provide a different appearance for every other row.--><!--
                                 <VisualState x:Name="Normal_AlternatingRow">
                                     <Storyboard>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="DGR_Border"
@@ -168,11 +168,11 @@
                                     </Storyboard>
                                 </VisualState>
 
-                                <!--In this example, a row in Editing or selected mode has an
+                                --><!--In this example, a row in Editing or selected mode has an
               identical appearances. In other words, the states 
               Normal_Selected, Unfocused_Selected, Normal_Editing, 
               MouseOver_Editing, MouseOver_Unfocused_Editing,
-              and Unfocused_Editing are identical.-->
+              and Unfocused_Editing are identical.--><!--
                                 <VisualState x:Name="Normal_Selected">
                                     <Storyboard>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="DGR_Border"
@@ -292,10 +292,10 @@
                                     </Storyboard>
                                 </VisualState>
 
-                                <!--In this example, the appearance of a selected row 
+                                --><!--In this example, the appearance of a selected row 
               that has the mouse over it is the same regardless of
               whether the row is selected.  In other words, the states 
-              MouseOver_Editing and MouseOver_Unfocused_Editing are identical.-->
+              MouseOver_Editing and MouseOver_Unfocused_Editing are identical.--><!--
                                 <VisualState x:Name="MouseOver_Selected">
                                     <Storyboard>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="DGR_Border"
@@ -363,5 +363,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 </ResourceDictionary>

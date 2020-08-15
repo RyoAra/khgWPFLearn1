@@ -54,7 +54,7 @@ namespace khgWPFLearn_CustomUI.Controls
 
         public ListBoxExtention()
         {
-            //DefaultStyleKeyProperty.OverrideMetadata(typeof(ListBoxExtention), new FrameworkPropertyMetadata(typeof(ListBoxExtention)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(ListBoxExtention), new FrameworkPropertyMetadata(typeof(ListBoxExtention)));
         }
     }
 }
